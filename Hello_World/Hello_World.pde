@@ -1,5 +1,7 @@
 //Global Variables
 int appWidth, appHeight;
+float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
+
 //
 void setup () {
   //Declare Display Geometry: square, landscape, portrait
@@ -28,16 +30,17 @@ void setup () {
       println("STOP, is broken");
     }
   }
-  //
-  //If ORIENTATION is wrong ... feedback to change it
-  //if ( orientation==p ) println(instruct);
-  //
-  
+  //Population
+  centerWidth = width * 1/2;
+  centerHeight = height * 1/2;
+  xStart = ; centerWidth - (width * 1/4);
+  yStart = ; centerHeight - (height * 1/4);
+  widthRect = width * 1/2;
+  heightRect = height * 1/2;
 } //End setup
 //
 void draw() {
-  ellipse (150, 20, 30, 30);
-  ellipse (100, 50, 30, 30);
+  rect(xStart, yStart, widthRect, heightRect);
 } //End draw
 // 
 void keyPressed() {} //End keyPressed
