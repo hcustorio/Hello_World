@@ -33,8 +33,8 @@ void setup () {
   //Population
   centerWidth = width * 1/2;
   centerHeight = height * 1/2;
-  xStart = ; centerWidth - (width * 1/4);
-  yStart = ; centerHeight - (height * 1/4);
+  xStart = centerWidth - (width * 1/4);
+  yStart = centerHeight - (height * 1/4);
   widthRect = width * 1/2;
   heightRect = height * 1/2;
 } //End setup
