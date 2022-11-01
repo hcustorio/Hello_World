@@ -51,7 +51,7 @@ void setup () {
 void draw() {
   if ( grayScale == true ) background(225); //Gray Scale 0-255
   //random(a, b)
-  if (randomColour == true ) background(color (random(0, 225),, random(255), random(255) ) ); //color(r,g,b), Casting 
+  if (randomColour == true ) background(color (random(0, 225), random(255), random(255) ) ); //color(r,g,b), Casting 
   //Night Mode
   //
   strokeWeight(thick); //noStroke()
