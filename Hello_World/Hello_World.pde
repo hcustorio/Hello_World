@@ -3,7 +3,8 @@ int appWidth, appHeight;
 float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
 color black=#000000, white=#FFFFFF, purple=#FA00F6, yellow=#F8FC64;
 color yellowNightMode=#F8FC00, purpleNightMode=#FA0096;
-
+float thick, thin,
+Boolean grayScale=false, randomColour=false, blackBackground=false, nightMode=false;
 //
 void setup () {
   //Declare Display Geometry: square, landscape, portrait
@@ -32,6 +33,10 @@ void setup () {
       println("STOP, is broken");
     }
   }
+  //
+  //If ORIENTATION is wrong ... feedback to change it
+  //if ( orientation==p ) println(instruct);
+  //
   //Population
   centerWidth = width * 1/2;
   centerHeight = height * 1/2;
@@ -39,19 +44,21 @@ void setup () {
   yStart = centerHeight - (height * 1/4);
   widthRect = width * 1/2;
   heightRect = height * 1/2;
+  thick = appWidth * 1/70;
+  thin = * appWidth * 1/140;
 } //End setup
 //
 void draw() {
   if ( grayScale == true ) background(225); //Gray Scale 0-255
   //random(a, b)
-  if (randomColour == true ) background(color (random(0, 225),
+  if (randomColour == true ) background(color (random(0, 225),, random(255), random(255) ) ); //color(r,g,b), Casting 
   //Night Mode
-  if (blackBackground == true ) background(black);
   //
-  stroke 
+  strokeWeight(thick); //noStroke()
   //Night Mode Decision
-  if (nightMode == true )
+  if ( nightMode == true )
   {
+    if ( blackBackground == true ) background(black);
     stroke(yellowNightMode);
     fill(purpleNightMode);
   } else
@@ -63,6 +70,7 @@ void draw() {
   //Reset default
   fill(white);
   stroke(black);
+  strokeWeight(1);
 } //End draw
 // 
 void keyPressed() {
@@ -72,9 +80,6 @@ void keyPressed() {
   if ( key=='A'|| key=='a' ) grayScale = true ;
   if ( key=='S'|| key=='s' ) randomColour = true;
   if ( key=='W'|| key=='w' ) blackBackground = true;
-
-
-
 } //End keyPressed
 //
 void mousePressed() {
