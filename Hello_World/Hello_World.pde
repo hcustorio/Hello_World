@@ -1,6 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
 float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
+color black=#000000, white=#FFFFFF, purple=#FA00F6, yellow=#F8FC64;
+color yellowNightMode=#F8FC00, purpleNightMode=#FA0096;
 
 //
 void setup () {
@@ -40,11 +42,44 @@ void setup () {
 } //End setup
 //
 void draw() {
+  if ( grayScale == true ) background(225); //Gray Scale 0-255
+  //random(a, b)
+  if (randomColour == true ) background(color (random(0, 225),
+  //Night Mode
+  if (blackBackground == true ) background(black);
+  //
+  stroke 
+  //Night Mode Decision
+  if (nightMode == true )
+  {
+    stroke(yellowNightMode);
+    fill(purpleNightMode);
+  } else
+  {
+    stroke(yellow);
+    fill(purple);
+  
   rect(xStart, yStart, widthRect, heightRect);
+  //Reset default
+  fill(white);
+  stroke(black);
 } //End draw
 // 
-void keyPressed() {} //End keyPressed
+void keyPressed() {
+  grayScale = false;
+  randomColour = false; 
+  blackBackground = false; 
+  if ( key=='A'|| key=='a' ) grayScale = true ;
+  if ( key=='S'|| key=='s' ) randomColour = true;
+  if ( key=='W'|| key=='w' ) blackBackground = true;
+
+
+
+} //End keyPressed
 //
-void mousePressed() {} //End mousePressed
+void mousePressed() {
+  if ( mouseButton == LEFT ) nightMode==true; 
+  if ( mouseButton == RIGHT ) nightMode==false; 
+} //End mousePressed
 //
 // End Main Program
